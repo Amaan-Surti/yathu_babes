@@ -37,15 +37,15 @@
         <mkdir dir="${dist.dir}"/>
         <mkdir dir="${lib.dir}"/>
         
-        <!-- Download Jakarta EE compatible libraries for GlassFish 7 -->
-        <get src="https://repo1.maven.org/maven2/jakarta/servlet/jakarta.servlet-api/5.0.0/jakarta.servlet-api-5.0.0.jar" 
-             dest="${lib.dir}/jakarta.servlet-api-5.0.0.jar" 
+        <!-- Download Java EE compatible libraries -->
+        <get src="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar" 
+             dest="${lib.dir}/javax.servlet-api-4.0.1.jar" 
              skipexisting="true"/>
-        <get src="https://repo1.maven.org/maven2/jakarta/servlet/jsp/jstl/jakarta.servlet.jsp.jstl-api/3.0.0/jakarta.servlet.jsp.jstl-api-3.0.0.jar" 
-             dest="${lib.dir}/jakarta.servlet.jsp.jstl-api-3.0.0.jar" 
+        <get src="https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar" 
+             dest="${lib.dir}/javax.servlet.jsp-api-2.3.3.jar" 
              skipexisting="true"/>
-        <get src="https://repo1.maven.org/maven2/org/glassfish/web/jakarta.servlet.jsp.jstl/3.0.1/jakarta.servlet.jsp.jstl-3.0.1.jar" 
-             dest="${lib.dir}/jakarta.servlet.jsp.jstl-3.0.1.jar" 
+        <get src="https://repo1.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar" 
+             dest="${lib.dir}/jstl-1.2.jar" 
              skipexisting="true"/>
         <get src="https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar" 
              dest="${lib.dir}/mysql-connector-java-8.0.28.jar" 
@@ -53,9 +53,9 @@
         <get src="https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" 
              dest="${lib.dir}/json-simple-1.1.1.jar" 
              skipexisting="true"/>
-        <!-- Jakarta XML Binding API -->
-        <get src="https://repo1.maven.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api/3.0.0/jakarta.xml.bind-api-3.0.0.jar" 
-             dest="${lib.dir}/jakarta.xml.bind-api-3.0.0.jar" 
+        <!-- JAXB API -->
+        <get src="https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar" 
+             dest="${lib.dir}/jaxb-api-2.3.1.jar" 
              skipexisting="true"/>
         
         <!-- Copy GlassFish-specific libraries directly -->
