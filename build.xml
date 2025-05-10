@@ -38,11 +38,12 @@
         <mkdir dir="${lib.dir}"/>
         
         <!-- Download Java EE compatible libraries -->
-        <get src="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar" 
-             dest="${lib.dir}/javax.servlet-api-4.0.1.jar" 
+        <!-- In the <target name="prepare"> section of build.xml -->
+        <get src="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar" 
+             dest="${lib.dir}/javax.servlet-api-3.1.0.jar" 
              skipexisting="true"/>
-        <get src="https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.3/javax.servlet.jsp-api-2.3.3.jar" 
-             dest="${lib.dir}/javax.servlet.jsp-api-2.3.3.jar" 
+        <get src="https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/2.3.1/javax.servlet.jsp-api-2.3.1.jar" 
+             dest="${lib.dir}/javax.servlet.jsp-api-2.3.1.jar" 
              skipexisting="true"/>
         <get src="https://repo1.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar" 
              dest="${lib.dir}/jstl-1.2.jar" 

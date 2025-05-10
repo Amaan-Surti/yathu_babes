@@ -14,16 +14,20 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <javax.jstl.version>1.2</javax.jstl.version>
-        <bootstrap.version>5.3.2</bootstrap.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        
+        <!-- Java EE 7 / Javax Dependencies -->
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version> <!-- Servlet 3.1 for Java EE 7 -->
+        <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version> <!-- JSP 2.3 for Java EE 7 -->
+        <javax.jstl.version>1.2</javax.jstl.version> 
+        
         <mysql-connector.version>8.0.28</mysql-connector.version>
+        <json-simple.version>1.1.1</json-simple.version>
     </properties>
 
     <dependencies>
-        <!-- Javax Servlet API -->
+        <!-- Javax Servlet API (Java EE 7) -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -31,7 +35,15 @@
             <scope>provided</scope>
         </dependency>
         
-        <!-- Javax JSTL for JSP templating -->
+        <!-- Javax JSP API (Java EE 7) -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>${javax.servlet.jsp-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- JSTL Implementation (will be bundled in WAR) -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -49,7 +61,15 @@
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
+            <version>${json-simple.version}</version>
+        </dependency>
+
+        <!-- JUnit (Example for testing) -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -78,9 +98,22 @@
                 <version>2.2</version>
                 <configuration>
                     <port>8080</port>
-                    <path>/</path>
+                    <path>/event-aggregator-web</path>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

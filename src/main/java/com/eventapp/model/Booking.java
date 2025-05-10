@@ -1,34 +1,32 @@
 package com.eventapp.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Date; // Use java.util.Date
 import java.util.List;
 
-/**
- * Represents a booking made by a user for one or more vendor services.
- */
 public class Booking implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private int id;
     private int userId;
     private Date eventDate;
+    private String eventTime; // <-- ADDED
     private String eventLocation;
-    private String status; // e.g., "PENDING", "CONFIRMED", "CANCELLED"
+    private String status; 
     private double totalCost;
-    private Date bookingDate;
-    private List<Integer> vendorIds; // List of vendor IDs included in this booking
+    private Date bookingDate; // This can serve as 'createdAt'
+    private List<Integer> vendorIds; 
     
-    // Default constructor
     public Booking() {
     }
     
-    // Parameterized constructor
-    public Booking(int id, int userId, Date eventDate, String eventLocation, 
+    // Parameterized constructor (update if needed)
+    public Booking(int id, int userId, Date eventDate, String eventTime, String eventLocation, 
                   String status, double totalCost, Date bookingDate, List<Integer> vendorIds) {
         this.id = id;
         this.userId = userId;
         this.eventDate = eventDate;
+        this.eventTime = eventTime; // <-- ADDED
         this.eventLocation = eventLocation;
         this.status = status;
         this.totalCost = totalCost;
@@ -37,69 +35,32 @@ public class Booking implements Serializable {
     }
     
     // Getters and setters
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
     
-    public int getUserId() {
-        return userId;
-    }
+    public Date getEventDate() { return eventDate; }
+    public void setEventDate(Date eventDate) { this.eventDate = eventDate; }
+
+    public String getEventTime() { return eventTime; } // <-- ADDED
+    public void setEventTime(String eventTime) { this.eventTime = eventTime; } // <-- ADDED
     
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+    public String getEventLocation() { return eventLocation; }
+    public void setEventLocation(String eventLocation) { this.eventLocation = eventLocation; }
     
-    public Date getEventDate() {
-        return eventDate;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
     
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
-    }
+    public double getTotalCost() { return totalCost; }
+    public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
     
-    public String getEventLocation() {
-        return eventLocation;
-    }
+    public Date getBookingDate() { return bookingDate; } // This is your 'createdAt'
+    public void setBookingDate(Date bookingDate) { this.bookingDate = bookingDate; } // Setter for 'createdAt'
     
-    public void setEventLocation(String eventLocation) {
-        this.eventLocation = eventLocation;
-    }
-    
-    public String getStatus() {
-        return status;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
-    public double getTotalCost() {
-        return totalCost;
-    }
-    
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
-    }
-    
-    public Date getBookingDate() {
-        return bookingDate;
-    }
-    
-    public void setBookingDate(Date bookingDate) {
-        this.bookingDate = bookingDate;
-    }
-    
-    public List<Integer> getVendorIds() {
-        return vendorIds;
-    }
-    
-    public void setVendorIds(List<Integer> vendorIds) {
-        this.vendorIds = vendorIds;
-    }
+    public List<Integer> getVendorIds() { return vendorIds; }
+    public void setVendorIds(List<Integer> vendorIds) { this.vendorIds = vendorIds; }
     
     @Override
     public String toString() {
@@ -107,6 +68,7 @@ public class Booking implements Serializable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", eventDate=" + eventDate +
+                ", eventTime='" + eventTime + '\'' + // <-- ADDED
                 ", eventLocation='" + eventLocation + '\'' +
                 ", status='" + status + '\'' +
                 ", totalCost=" + totalCost +

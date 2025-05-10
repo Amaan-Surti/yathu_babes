@@ -28,7 +28,15 @@ import com.eventapp.util.DatabaseUtil;
 /**
  * Servlet for handling booking operations.
  */
-@WebServlet(urlPatterns = {"/cart", "/checkout", "/user/bookings", "/booking/*", "/cancel-booking"})
+@WebServlet(urlPatterns = {
+    "/checkout", 
+    "/user/bookings", 
+    "/booking/details",  // Example: if you have a specific details page
+    "/booking/confirm",  // Example: for confirming a booking
+    "/booking/process-payment", // Example
+    "/cancel-booking"
+    // Add any other booking-specific URLs here, but NOT /cart
+})
 public class BookingServlet extends BaseServlet {
     private static final long serialVersionUID = 1L;
     
